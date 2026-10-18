@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="toolbar">
+    <h2>Servers ({{ servers|length }})</h2>
+    <a class="button" href="{{ url_for('add_server') }}">+ Add server</a>
+</div>
+
+{% if servers %}
+<table>
+    <thead>
+        <tr>
+            <th>Hostname</th>
+            <th>IP address</th>
+            <th>Operating system</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for server in servers %}
+        <tr>
+            <td>{{ server.hostname }}</td>
+            <td>{{ server.ip_address }}</td>
+            <td>{{ server.os }}</td>
+            <td><a href="{{ url_for('server_detail', server_id=server.id) }}">View</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p class="empty">No servers yet. Click "Add server" to create the first one.</p>
+{% endif %}
+{% endblock %}

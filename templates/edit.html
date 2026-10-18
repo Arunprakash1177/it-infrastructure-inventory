@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Edit {{ server.hostname }}{% endblock %}
+{% block content %}
+<h2>Edit server</h2>
+
+<form method="post" action="{{ url_for('edit_server', server_id=server.id) }}">
+    <label for="hostname">Hostname</label>
+    <input type="text" id="hostname" name="hostname" value="{{ hostname }}" required>
+
+    <label for="ip_address">IP address</label>
+    <input type="text" id="ip_address" name="ip_address" value="{{ ip_address }}" required>
+
+    <label for="os">Operating system</label>
+    <input type="text" id="os" name="os" value="{{ os_name }}" required>
+
+    <div class="actions">
+        <button type="submit">Save changes</button>
+        <a class="button secondary" href="{{ url_for('server_detail', server_id=server.id) }}">Cancel</a>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,18 @@
+# Docker reads this file itself; it does not need to be inside the image
+.dockerignore
+
+# Native virtual environment: the container is already isolated
+venv/
+
+# Local test database: a new container should start with an empty one
+inventory.db
+
+# Dockerfile and its editor backups are build instructions, not app files
+Dockerfile*
+
+# Documentation is not needed to run the app
+README.md
+
+# Python cache files, at any depth
+**/__pycache__
+*.pyc
