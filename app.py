@@ -23,8 +23,8 @@ app.secret_key = "learning-project-secret-key"
 
 # The database is a single file that lives next to app.py.
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-DATABASE = os.path.join(BASE_DIR, "inventory.db")
-
+DATA_DIR = os.environ.get("DATA_DIR", BASE_DIR)
+DATABASE = os.path.join(DATA_DIR, "inventory.db")
 
 # ---------------------------------------------------------------------------
 # Database helpers

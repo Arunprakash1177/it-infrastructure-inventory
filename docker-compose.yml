@@ -1,0 +1,13 @@
+  services:
+    inventory:
+      build: docker build -f Dockerfile.secure -t inventory-data
+        context: 
+        dockerfile: ...
+      ports:
+        -  5000:5000
+      volumes: 
+        - inventory-data
+      restart: auto
+
+  volumes:
+    ...:
